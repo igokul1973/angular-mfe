@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+
+    mfe.proxy:
+        container_name: mfe.proxy
+        image: jwilder/nginx-proxy
+        ports:
+            - 80:80
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./proxy/conf.d/custom_proxy.conf:/etc/nginx/conf.d/custom_proxy.conf:ro,cached
+        restart: always
+        networks:
+            network.mfe: {}
+
+    mfe.host:
+        container_name: mfe.host
+        image: mfe.host
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+            args:
+                project: ${HOST_PROJECT_NAME}
+        working_dir: /var/www/app
+        volumes:
+            - ./host:/var/www/app
+        expose:
+            - ${HOST_PORT}
+        environment:
+            - VIRTUAL_HOST=mfe.host.l
+            - MODE=${HOST_MODE}
+        command: bash -c "if [[ $HOST_MODE == 'prod' ]]; then
+                echo 'Starting nginx';
+                nginx -g 'daemon off;';
+            else
+                echo 'Starting npm and web-dev-server';
+                npm install && npm start -- -c development-docker -- --host 0.0.0.0 --disable-host-check true;
+            fi"
+        networks:
+            network.mfe: {}
+
+    mfe.feature1:
+        container_name: mfe.feature1
+        image: mfe.feature1
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+            args:
+                project: ${F1_PROJECT_NAME}
+        working_dir: /var/www/app
+        volumes:
+            - ./feature_1:/var/www/app
+        expose:
+            - ${F1_PORT}
+        environment:
+            - VIRTUAL_HOST=mfe.feature1.l
+            - MODE=${F1_MODE}
+        command: bash -c "if [[ $F1_MODE == 'prod' ]]; then
+                echo 'Starting nginx';
+                nginx -g 'daemon off;';
+            else
+                echo 'Starting npm and web-dev-server';
+                npm install && npm start -- -c development-docker -- --host 0.0.0.0 --disable-host-check true;
+            fi"
+        networks:
+            network.mfe: {}
+
+networks: 
+    network.mfe:
+        ipam:
+            driver: default
+            config:
+                - subnet: ${NETWORK_MFE_SUBNET}

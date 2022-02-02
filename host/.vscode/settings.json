@@ -1,0 +1,9 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "liveServer.settings.port": 5501,
+  "liveServer.settings.file": "index.html",
+  "liveServer.settings.root": "/dist/host"
+}
