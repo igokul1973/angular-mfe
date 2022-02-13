@@ -32,7 +32,7 @@ module.exports = {
         name: "feature_1",
         filename: "feature_1.js",
         exposes: {
-            'content': './src/app/content/content.module.ts',
+            content: './src/app/content/content.module.ts',
         },
 
         // For hosts (please adjust)
