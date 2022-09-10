@@ -21,6 +21,10 @@ module.exports = {
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
-        'no-debugger': 'off'
+        'no-debugger': 'off',
+        'rxjs/no-sharereplay': [
+          'error',
+          { allowConfig: true}
+        ]
     }
 };

@@ -50,6 +50,7 @@ module.exports = {
           "@angular/forms": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: true },
           "@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: true },
           rxjs: { singleton: true, strictVersion: true, requiredVersion: 'auto', eager: true },
+          favorites: { singleton: true, strictVersion: true, requiredVersion: '0.0.1', eager: true },
 
           ...sharedMappings.getDescriptors()
         })

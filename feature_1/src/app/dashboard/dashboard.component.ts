@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FavoritesService } from 'favorites';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
+    favorites = this.favoritesService.favorites;
+    favorite = '';
 
-  constructor() { }
+    constructor(private favoritesService: FavoritesService) {}
 
-  ngOnInit(): void {
-  }
+    addFavorite() {
+        this.favoritesService.add(this.favorite);
+    }
 
+    removeFavorite() {
+        this.favoritesService.remove(this.favorite);
+    }
 }

@@ -1,1 +1,18 @@
-<p>dashboard works!</p>
+<mat-form-field class="field">
+  <mat-label>Add favorite food</mat-label>
+  <input type="text"
+         matInput
+         [(ngModel)]="favorite"
+         placehoder="Example: Pizza">
+</mat-form-field>
+<button mat-raised-button
+        (click)="addFavorite()"
+        class="btn add-btn"
+        color="primary">Add</button>
+<button mat-raised-button
+        (click)="removeFavorite()"
+        class="btn remove-btn"
+        color="warn">Remove</button>
+
+<div>{{favorite}}</div>
+<div>{{favorites | json}}</div>

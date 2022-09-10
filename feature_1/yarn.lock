@@ -183,7 +183,7 @@
     "symbol-observable" "4.0.0"
     "uuid" "8.3.2"
 
-"@angular/common@^13.0.0 || ^14.0.0-0", "@angular/common@>=12.0.0", "@angular/common@~13.1.3", "@angular/common@13.1.3":
+"@angular/common@^13.0.0 || ^14.0.0-0", "@angular/common@^13.1.0", "@angular/common@>=12.0.0", "@angular/common@~13.1.3", "@angular/common@13.1.3":
   "integrity" "sha512-8qf5syeXUogf3+GSu6IRJjrk46UKh9L0QuLx+OSIl/df0y1ewx7e28q3BAUEEnOnKrLzpPNxWs2iwModc4KYfg=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-13.1.3.tgz"
   "version" "13.1.3"
@@ -214,7 +214,7 @@
   dependencies:
     "tslib" "^2.3.0"
 
-"@angular/core@^13.0.0 || ^14.0.0-0", "@angular/core@>=12.0.0", "@angular/core@~13.1.3", "@angular/core@13.1.3":
+"@angular/core@^13.0.0 || ^14.0.0-0", "@angular/core@^13.1.0", "@angular/core@>=12.0.0", "@angular/core@~13.1.3", "@angular/core@13.1.3":
   "integrity" "sha512-rvCnIAonRx7VnH2Mv9lQR+UYdlFQQetZCjPw8QOswOspEpHpEPDrp1HxDIqJnHxNqW0n8J3Zev/VgQYr0481UA=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-13.1.3.tgz"
   "version" "13.1.3"
@@ -3529,6 +3529,13 @@
   "version" "1.13.0"
   dependencies:
     "reusify" "^1.0.4"
+
+"favorites@file:../libs/dist/favorites/favorites-0.0.1.tgz":
+  "integrity" "sha512-cXooDqVhvWyEktKyCVeEXf3qRce63QPwE4wLEaHKjaxq2JnPrFTJrTmwKqGT4dw4HZXUV+3REbpcmktNLFnHkw=="
+  "resolved" "file:../libs/dist/favorites/favorites-0.0.1.tgz"
+  "version" "0.0.1"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "faye-websocket@^0.11.3":
   "integrity" "sha512-CzbClwlXAuiRQAlUyfqPgvPoNKTckTPGfwZV4ZdAhVcP2lh9KUxJg2b5GkE7XbjKQ3YJnQ9z6D9ntLAlB+tP8g=="

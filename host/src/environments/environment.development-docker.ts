@@ -11,7 +11,7 @@ export const environment: IEnvironment = {
         feature_1: {
             protocol: 'http',
             host: 'mfe.feature1.l',
-            port: 80
+            port: 8080
         }
     }
 };

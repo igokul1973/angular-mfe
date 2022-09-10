@@ -27,6 +27,17 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>host</span>
+      <span class="spacer"></span>
+      <button type="button"
+              aria-label="Like service"
+              mat-icon-button
+              [matMenuTriggerFor]="menu">
+        <mat-icon aria-label="Side nav toggle icon">favorite</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let item of favorites"
+                mat-menu-item>{{item}}</button>
+      </mat-menu>
     </mat-toolbar>
 
     <!-- Add Content Here -->
