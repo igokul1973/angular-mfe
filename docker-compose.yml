@@ -10,6 +10,7 @@ services:
         volumes:
             - /var/run/docker.sock:/tmp/docker.sock:ro
             - ./proxy/conf.d/custom_proxy.conf:/etc/nginx/conf.d/custom_proxy.conf:ro,cached
+            - ./proxy/certs.d:/etc/nginx/certs:ro,cached
         restart: always
         networks:
             network.mfe: {}
