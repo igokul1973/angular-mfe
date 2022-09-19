@@ -18,9 +18,22 @@ pipeline {
 			}
 		}
 		stage('deploy') {
-			steps {
+			input {
+                                message 'Deploy?'
+                                ok 'Do it!'
+                                parameters {
+                                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment.')
+                                }
 				echo 'deploying the test app...'
 			}
+                        steps {
+				echo 'deploying the test app...'
+                        }
 		}
 	}
+        post {
+            always {
+                echo 'Prints whether deploy happened or not, success or failure.'
+            }
+        }
 }
