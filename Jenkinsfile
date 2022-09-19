@@ -1,23 +1,30 @@
 pipeline {
 	agent any
-        triggers {
-            githubPush()
-        }
+	// triggers {
+	//     githubPush()
+	// }
+	environment {
+		RELEASE='20.04'
+	}
 	stages {
-		stage('build') {
+		stage('Build') {
+			environment {
+				LOG_LEVEL='INFO'
+			}
 			steps {
-				echo 'building the test app...'
+				echo "Building release ${RELEASE} with log level ${LOG_LEVEL}"
 			}
 		}
 		stage('test') {
 			steps {
-				echo 'testing the test app...'
+				echo "Testing the release version ${RELEASE}.."
+				writeFile file: 'test-results.txt', text: 'The test has passed SUCCESSFULLY!'
 			}
 		}
-		stage('deploy') {
-			steps {
-				echo 'deploying the test app...'
-			}
+	}
+	post {
+		always {
+			archiveArtifacts 'test-results.txt'
 		}
 	}
 }
