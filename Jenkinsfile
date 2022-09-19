@@ -3,6 +3,9 @@ pipeline {
         triggers {
             githubPush()
         }
+        environment {
+            RELEASE='20.04'
+        }
 	stages {
 		stage('build') {
 			steps {
@@ -11,7 +14,7 @@ pipeline {
 		}
 		stage('test') {
 			steps {
-				echo 'testing the test app...'
+				echo "testing the test app with the release version ${RELEASE}.."
 			}
 		}
 		stage('deploy') {
