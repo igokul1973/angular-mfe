@@ -7,27 +7,26 @@ pipeline {
             RELEASE='20.04'
         }
 	stages {
-		stage('build') {
+		stage('Build') {
 			steps {
-				echo 'building the test app...'
+				echo 'Building the test app...'
 			}
 		}
-		stage('test') {
+		stage('Test') {
 			steps {
-				echo "testing the test app with the release version ${RELEASE}.."
+				echo "Testing the test app with the release version ${RELEASE}.."
 			}
 		}
-		stage('deploy') {
+		stage('Deploy') {
 			input {
                                 message 'Deploy?'
                                 ok 'Do it!'
                                 parameters {
                                     string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment.')
                                 }
-				echo 'deploying the test app...'
 			}
                         steps {
-				echo 'deploying the test app...'
+				echo 'Deploying the test app...'
                         }
 		}
 	}
