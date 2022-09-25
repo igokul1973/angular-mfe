@@ -26,9 +26,9 @@ pipeline {
 			}
 		}
 	}
-	post {
-		always {
-			archiveArtifacts 'test-results.txt'
-		}
-	}
+	// post {
+	// 	always {
+	// 		archiveArtifacts 'test-results.txt'
+	// 	}
+	// }
 }
