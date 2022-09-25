@@ -1,7 +1,7 @@
 pipeline {
 	agent {
 		docker {
-			image node:latest
+			image node:lts
 		}
 	}
 	// triggers {
@@ -22,13 +22,12 @@ pipeline {
 		stage('Test') {
 			steps {
 				echo "Testing the release version ${RELEASE}.."
-				// writeFile file: 'test-results.txt', text: 'The test has passed SUCCESSFULLY!'
+				writeFile file: 'test-results.txt', text: 'The test has passed SUCCESSFULLY!'
 			}
 		}
 	}
 	post {
 		always {
-			agent none
 			archiveArtifacts 'test-results.txt'
 		}
 	}
