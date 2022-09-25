@@ -27,8 +27,8 @@ pipeline {
 		}
 	}
 	post {
-		agent none
 		always {
+			agent none
 			archiveArtifacts 'test-results.txt'
 		}
 	}
