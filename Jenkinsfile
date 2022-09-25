@@ -22,11 +22,12 @@ pipeline {
 		stage('Test') {
 			steps {
 				echo "Testing the release version ${RELEASE}.."
-				writeFile file: 'test-results.txt', text: 'The test has passed SUCCESSFULLY!'
+				// writeFile file: 'test-results.txt', text: 'The test has passed SUCCESSFULLY!'
 			}
 		}
 	}
 	post {
+		agent none
 		always {
 			archiveArtifacts 'test-results.txt'
 		}
